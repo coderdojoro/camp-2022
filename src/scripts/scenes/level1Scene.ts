@@ -49,12 +49,14 @@ export default class Level1Scene extends TelportScene {
         let tileset3 = this.map.addTilesetImage('things', 'things-tiles', 32, 32, 1, 2);
 
         // Parameters: layer name (or index) from Tiled, tileset, x, y
-        let belowLayer = this.map.createLayer('Below hero', tileset, 0, 0);
-        let objectsBelowLayer = this.map.createLayer('Objects below hero', tileset, 0, 0);
-        this.worldLayer = this.map.createLayer('World', tileset, 0, 0);
-        let aboveLayer = this.map.createLayer('Above hero', tileset, 0, 0);
+        let belowLayer = this.map.createLayer('Below hero', [tileset, tileset2, tileset3], 0, 0);
+        let objectsBelowLayer = this.map.createLayer('Objects below hero', [tileset, tileset2, tileset3], 0, 0);
+        this.worldLayer = this.map.createLayer('World', [tileset, tileset2, tileset3], 0, 0);
+        let aboveLayer = this.map.createLayer('Above hero', [tileset, tileset2, tileset3], 0, 0);
 
         this.worldLayer.setCollisionBetween(tileset.firstgid, tileset.firstgid + tileset.total, true);
+        this.worldLayer.setCollisionBetween(tileset2.firstgid, tileset2.firstgid + tileset2.total, true);
+        this.worldLayer.setCollisionBetween(tileset3.firstgid, tileset3.firstgid + tileset3.total, true);
 
         // By default, everything gets depth sorted on the screen in the order we created things. Here, we
         // want the "Above this.hero" layer to sit on top of the this.hero, so we explicitly give it a depth.
@@ -93,7 +95,7 @@ export default class Level1Scene extends TelportScene {
         let camera = this.cameras.main;
         camera.startFollow(this.hero);
         camera.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-        camera.setZoom(0.5);
+        // camera.setZoom(0.5);
         this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     }
 
