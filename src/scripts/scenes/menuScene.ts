@@ -9,6 +9,7 @@ export default class MenuScene extends Phaser.Scene {
         this.load.image('play', 'assets/menu/play.png');
         this.load.image('play-focus', 'assets/menu/play-focus.png');
         this.load.image('title', 'assets/menu/title-bg.png');
+        this.load.image('main-image', 'assets/menu/mainscene image.jpg');
     }
 
     create() {
@@ -29,13 +30,18 @@ export default class MenuScene extends Phaser.Scene {
         this.cameras.main.setBackgroundColor('#008080');
 
         let screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
+        let screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
 
-        let title = this.add.image(screenCenterX, 50, 'title');
-        title.setOrigin(0.5, 0);
+        let title = this.add.image(screenCenterX, screenCenterY, 'main-image');
+        let scaleX = this.cameras.main.width / title.width;
+        let scaleY = this.cameras.main.height / title.height;
+        let scale = Math.max(scaleX, scaleY);
+        title.setScale(scale).setScrollFactor(0);
+
         let playLvl1 = this.add.sprite(screenCenterX, 850, 'play').setInteractive();
-        title.setOrigin(0.5, 0);
+        playLvl1.setOrigin(0.5, 0);
         let playLvl2 = this.add.sprite(screenCenterX, 980, 'play').setInteractive();
-        title.setOrigin(0.5, 0);
+        playLvl2.setOrigin(0.5, 0);
 
         playLvl1.on(Phaser.Input.Events.POINTER_OVER, () => {
             playLvl1.setTexture('play-focus');

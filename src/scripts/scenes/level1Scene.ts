@@ -5,7 +5,6 @@ import Hero from '../sprites/hero';
 import TelportScene from './telportScene';
 
 export default class Level1Scene extends TelportScene {
-
     constructor() {
         super({ key: 'Level1Scene' });
     }
