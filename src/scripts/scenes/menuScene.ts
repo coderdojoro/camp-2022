@@ -8,7 +8,7 @@ export default class MenuScene extends Phaser.Scene {
     preload() {
         this.load.image('play', 'assets/menu/play.png');
         this.load.image('play-focus', 'assets/menu/play-focus.png');
-        this.load.image('title', 'assets/menu/title-bg.png');
+        this.load.image('logo', 'assets/menu/logo.png');
         this.load.image('main-image', 'assets/menu/mainscene image.jpg');
     }
 
@@ -33,10 +33,13 @@ export default class MenuScene extends Phaser.Scene {
         let screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
 
         let title = this.add.image(screenCenterX, screenCenterY, 'main-image');
+        let title1 = this.add.image(screenCenterX, screenCenterY, 'logo');
+        title1.setScale(1.5);
+
         let scaleX = this.cameras.main.width / title.width;
         let scaleY = this.cameras.main.height / title.height;
         let scale = Math.max(scaleX, scaleY);
-        title.setScale(scale).setScrollFactor(0);
+        title.setScale(scale);
 
         let playLvl1 = this.add.sprite(screenCenterX, 850, 'play').setInteractive();
         playLvl1.setOrigin(0.5, 0);
