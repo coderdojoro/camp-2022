@@ -32,21 +32,37 @@ export default class MenuScene extends Phaser.Scene {
 
         let title = this.add.image(screenCenterX, 50, 'title');
         title.setOrigin(0.5, 0);
-        let play = this.add.sprite(screenCenterX, 850, 'play').setInteractive();
+        let playLvl1 = this.add.sprite(screenCenterX, 850, 'play').setInteractive();
+        title.setOrigin(0.5, 0);
+        let playLvl2 = this.add.sprite(screenCenterX, 980, 'play').setInteractive();
         title.setOrigin(0.5, 0);
 
-        play.on(Phaser.Input.Events.POINTER_OVER, () => {
-            play.setTexture('play-focus');
+        playLvl1.on(Phaser.Input.Events.POINTER_OVER, () => {
+            playLvl1.setTexture('play-focus');
         });
-        play.on(Phaser.Input.Events.POINTER_OUT, () => {
-            play.setTexture('play');
+        playLvl1.on(Phaser.Input.Events.POINTER_OUT, () => {
+            playLvl1.setTexture('play');
         });
-        play.on(Phaser.Input.Events.POINTER_DOWN, () => {
-            play.setTexture('play');
+        playLvl1.on(Phaser.Input.Events.POINTER_DOWN, () => {
+            playLvl1.setTexture('play');
         });
-        play.on(Phaser.Input.Events.POINTER_UP, () => {
-            play.setTexture('play-focus');
-            this.scene.start('GameScene');
+        playLvl1.on(Phaser.Input.Events.POINTER_UP, () => {
+            playLvl1.setTexture('play-focus');
+            this.scene.start('Level1Scene');
+        });
+
+        playLvl2.on(Phaser.Input.Events.POINTER_OVER, () => {
+            playLvl2.setTexture('play-focus');
+        });
+        playLvl2.on(Phaser.Input.Events.POINTER_OUT, () => {
+            playLvl2.setTexture('play');
+        });
+        playLvl2.on(Phaser.Input.Events.POINTER_DOWN, () => {
+            playLvl2.setTexture('play');
+        });
+        playLvl2.on(Phaser.Input.Events.POINTER_UP, () => {
+            playLvl2.setTexture('play-focus');
+            this.scene.start('Level2Scene');
         });
     }
 }

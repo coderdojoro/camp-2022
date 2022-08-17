@@ -1,7 +1,7 @@
 import 'phaser';
 import * as EasyStar from 'easystarjs';
 import Hero from './hero';
-import GameScene from '../scenes/gameScene';
+import TelportScene from '../scenes/telportScene';
 
 enum State {
     IDLE,
@@ -20,11 +20,11 @@ export default class Grizzly extends Phaser.GameObjects.Sprite {
 
     heroCollider: Phaser.Physics.Arcade.Collider;
 
-    scene: GameScene;
+    scene: TelportScene;
 
     debugCircles: Phaser.GameObjects.Arc[] = new Array();
 
-    constructor(scene: GameScene, x, y) {
+    constructor(scene: TelportScene, x, y) {
         super(scene, x, y, 'grizzly-idle-spritesheet', 0);
         this.scene = scene;
         this.scene.add.existing(this);
