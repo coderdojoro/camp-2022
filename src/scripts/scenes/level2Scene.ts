@@ -46,8 +46,8 @@ export default class Level2Scene extends TelportScene {
         // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
         // Phaser's cache (i.e. the name you used in preload)
         let tileset = this.map.addTilesetImage('ground', 'ground-tiles', 32, 32, 1, 2);
-        let tileset2 = this.map.addTilesetImage('castle', 'castle-tiles', 32, 32, 1, 2);
-        let tileset3 = this.map.addTilesetImage('castle 2', 'castle 2-tiles', 32, 32, 1, 2);
+        let tileset2 = this.map.addTilesetImage('castle', 'castle-tiles', 32, 32, 0, 0);
+        let tileset3 = this.map.addTilesetImage('castle 2', 'castle 2-tiles', 32, 32, 0, 0);
 
         // Parameters: layer name (or index) from Tiled, tileset, x, y
         let belowLayer = this.map.createLayer('Below hero', tileset, 0, 0);
