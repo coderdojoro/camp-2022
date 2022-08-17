@@ -154,9 +154,9 @@
          "image":"..\/tilesets\/ground-tileset.png",
          "imageheight":1020,
          "imagewidth":1360,
-         "margin":0,
+         "margin":1,
          "name":"ground",
-         "spacing":0,
+         "spacing":2,
          "tilecount":1302,
          "tileheight":32,
          "tilewidth":32
