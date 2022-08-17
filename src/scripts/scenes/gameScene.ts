@@ -13,8 +13,10 @@ export default class GameScene extends TelportScene {
     }
 
     preload() {
-        this.load.image('tiles', 'assets/tilesets/ground-tileset.png');
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/town.json');
+        this.load.image('tiles','assets/tilesets/ground-tileset.png');
+        this.load.image('tiles','assets/tilesets/castle-tileset.png');
+        this.load.image('tiles','assets/tilesets/castle 2-tileset.png');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/maze.json');
 
         this.load.spritesheet('hero-idle-e-spritesheet', 'assets/hero/idle_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
         this.load.spritesheet('hero-walk-e-spritesheet', 'assets/hero/walk_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
