@@ -4,12 +4,10 @@ import Grizzly from '../sprites/grizzly';
 import Hero from '../sprites/hero';
 import TelportScene from './telportScene';
 
-export default class GameScene extends TelportScene {
-    map: Phaser.Tilemaps.Tilemap;
-    worldLayer: Phaser.Tilemaps.TilemapLayer;
+export default class Level2Scene extends TelportScene {
 
     constructor() {
-        super({ key: 'GameScene' });
+        super({ key: 'Level2Scene' });
     }
 
     preload() {
