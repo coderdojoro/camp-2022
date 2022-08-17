@@ -13,7 +13,9 @@ export default class GameScene extends TelportScene {
     }
 
     preload() {
-        this.load.image('tiles', 'assets/tilesets/ground-tileset.png');
+        this.load.image('ground-tiles', 'assets/tilesets/ground-tileset.png');
+        this.load.image('maze-tiles', 'assets/tilesets/maze-tileset.png');
+        this.load.image('things-tiles', 'assets/tilesets/things-tileset.png');
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/town.json');
 
         this.load.spritesheet('hero-idle-e-spritesheet', 'assets/hero/idle_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
@@ -45,7 +47,9 @@ export default class GameScene extends TelportScene {
 
         // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
         // Phaser's cache (i.e. the name you used in preload)
-        let tileset = this.map.addTilesetImage('ground', 'tiles', 32, 32, 1, 2);
+        let tileset = this.map.addTilesetImage('ground', 'ground-tiles', 32, 32, 1, 2);
+        let tileset2 = this.map.addTilesetImage('maze', 'maze-tiles', 32, 32, 1, 2);
+        let tileset3 = this.map.addTilesetImage('things', 'things-tiles', 32, 32, 1, 2);
 
         // Parameters: layer name (or index) from Tiled, tileset, x, y
         let belowLayer = this.map.createLayer('Below hero', tileset, 0, 0);
@@ -72,7 +76,7 @@ export default class GameScene extends TelportScene {
 
         // Object layers in Tiled let you embed extra info into a map - like a spawn point or custom
         // collision shapes. In the tmx file, there's an object layer with a point named "Spawn Point"
-        let spawnPoint: Phaser.Types.Tilemaps.TiledObject = this.map.findObject('Objects', (obj) => obj.name === 'Spawn Point');
+        let spawnPoint: Phaser.Types.Tilemaps.TiledObject = this.map.findObject('Objects', (obj) => obj.name == 'Spawn Point');
 
         this.hero = new Hero(this, spawnPoint.x, spawnPoint.y);
         this.hero.setDepth(100);
