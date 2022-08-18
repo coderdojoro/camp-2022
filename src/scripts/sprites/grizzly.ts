@@ -1,7 +1,7 @@
 import 'phaser';
-import * as EasyStar from 'easystarjs';
 import Hero from './hero';
 import TelportScene from '../scenes/telportScene';
+import { PhaserNavMesh } from 'phaser-navmesh';
 
 enum State {
     IDLE,
@@ -13,10 +13,9 @@ enum State {
 export default class Grizzly extends Phaser.GameObjects.Sprite {
     enemyState: State = State.IDLE;
 
-    easystar: EasyStar.js;
+    navMesh: PhaserNavMesh;
 
-    //in pixels (adjusted to +- 16 px to the middle of tile)
-    target?: Phaser.Math.Vector2;
+    target?: Phaser.Geom.Point;
 
     heroCollider: Phaser.Physics.Arcade.Collider;
 
@@ -77,11 +76,7 @@ export default class Grizzly extends Phaser.GameObjects.Sprite {
             this
         );
 
-        this.easystar = new EasyStar.js();
-        this.easystar.setGrid(this.scene.worldLayer.layer.data.map((arr) => arr.map((tile) => tile.index)));
-        this.easystar.setAcceptableTiles(-1);
-        this.easystar.enableDiagonals();
-        this.easystar.enableCornerCutting();
+        this.navMesh = this.scene.navMeshPlugin.buildMeshFromTilemap('mash', this.scene.map, [this.scene.worldLayer]);
     }
 
     preUpdate(time, delta) {
@@ -98,13 +93,8 @@ export default class Grizzly extends Phaser.GameObjects.Sprite {
             }
         }
 
-        if (this.enemyState == State.FOLLOW) {
-            let distanceFromTarget = Phaser.Math.Distance.Between(this.target!.x, this.target!.y, this.x, this.y);
-            // console.log('distance: ' + distanceFromTarget);
-            if (distanceFromTarget < 2) {
-                this.computeNextTarget();
-            }
-
+        if (this.enemyState == State.FOLLOW && this.target) {
+            this.computeNextTarget();
             this.scene.physics.moveTo(this, this.target!.x, this.target!.y, 100);
             this.setWalkAnimation();
         }
@@ -115,38 +105,24 @@ export default class Grizzly extends Phaser.GameObjects.Sprite {
     }
 
     computeNextTarget() {
-        this.easystar.findPath(
-            this.scene.map.worldToTileX(this.x),
-            this.scene.map.worldToTileY(this.y),
-            this.scene.map.worldToTileX(this.scene.hero.x),
-            this.scene.map.worldToTileY(this.scene.hero.y),
-            (path) => {
-                if (path == null) {
-                    this.enemyState = State.IDLE;
-                    return;
-                }
-                // path contains the player and the grizzly tiles: 2 should means that there is nothing between them
-                if (path.length <= 2) {
-                    this.target = new Phaser.Math.Vector2(this.scene.hero.x, this.scene.hero.y);
-                    this.enemyState = State.FOLLOW;
-                    return;
-                }
-
-                this.target = new Phaser.Math.Vector2(this.scene.map.tileToWorldX(path[1].x) + 16, this.scene.map.tileToWorldY(path[1].y) + 16);
-                this.enemyState = State.FOLLOW;
-                // display computed path With red bullets:
-                // for (let circle of this.debugCircles) {
-                //     circle.destroy();
-                // }
-                // this.debugCircles = [];
-                // for (let point of path) {
-                //     let worldXY = this.scene.map.tileToWorldXY(point.x, point.y);
-                //     let circle = this.scene.add.circle(worldXY.x + 16, worldXY.y + 16, 5, 0xff0000);
-                //     this.debugCircles.push(circle);
-                // }
+        let path: Phaser.Geom.Point[] = this.navMesh.findPath(
+            {
+                x: this.x,
+                y: this.y
+            },
+            {
+                x: this.scene.hero.x,
+                y: this.scene.hero.y
             }
         );
-        this.easystar.calculate();
+        if (path == null) {
+            this.enemyState = State.IDLE;
+            this.target = undefined;
+            return;
+        }
+
+        this.target = path[1];
+        this.enemyState = State.FOLLOW;
     }
 
     setWalkAnimation() {
