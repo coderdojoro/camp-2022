@@ -125,7 +125,6 @@ export default class Hero extends Phaser.GameObjects.Sprite {
         console.log();
 
         (this.body as Phaser.Physics.Arcade.Body).setCollideWorldBounds(true);
-        //this.setScale(1.4);
 
         this.on('TELEPORT', (area) => {});
     }
