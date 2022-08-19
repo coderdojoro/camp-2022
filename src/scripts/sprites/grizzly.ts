@@ -1,5 +1,6 @@
 import 'phaser';
-import Hero from './hero';
+import Hero1 from './hero1';
+import Hero2 from './hero';
 import TelportScene from '../scenes/telportScene';
 import { PhaserNavMesh } from 'phaser-navmesh';
 
@@ -30,6 +31,7 @@ export default class Grizzly extends Phaser.GameObjects.Sprite {
         this.scene.physics.add.existing(this);
         (this.body as Phaser.Physics.Arcade.Body).setSize(20, 31);
         (this.body as Phaser.Physics.Arcade.Body).setOffset(6, 1);
+
 
         this.anims.create({
             key: 'grizzly-idle-anim',

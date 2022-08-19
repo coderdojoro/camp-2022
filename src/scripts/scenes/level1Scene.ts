@@ -1,7 +1,7 @@
 import 'phaser';
 import { AreaCollider } from '../../areaCollider';
 import Grizzly from '../sprites/grizzly';
-import Hero from '../sprites/hero';
+import Hero1 from '../sprites/hero1';
 import TelportScene from './telportScene';
 
 export default class Level1Scene extends TelportScene {
@@ -80,11 +80,11 @@ export default class Level1Scene extends TelportScene {
 
         // Object layers in Tiled let you embed extra info into a map - like a spawn point or custom
         // collision shapes. In the tmx file, there's an object layer with a point named "Spawn Point"
-        //this.cameras.main.setZoom(5);
+        this.cameras.main.setZoom(4);
 
         let spawnPoint: Phaser.Types.Tilemaps.TiledObject = this.map.findObject('Objects', (obj) => obj.name == 'Spawn Point');
 
-        this.hero = new Hero(this, spawnPoint.x, spawnPoint.y);
+        this.hero = new Hero1(this, spawnPoint.x, spawnPoint.y);
         this.hero.setDepth(100);
         this.hero.setScale(0.8);
 
