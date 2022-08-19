@@ -30,7 +30,6 @@ export default class Grizzly extends Phaser.GameObjects.Sprite {
         (this.body as Phaser.Physics.Arcade.Body).setSize(20, 31);
         (this.body as Phaser.Physics.Arcade.Body).setOffset(6, 1);
 
-
         this.anims.create({
             key: 'grizzly-idle-anim',
             frames: this.anims.generateFrameNumbers('grizzly-idle-spritesheet', {}),

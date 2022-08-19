@@ -1,5 +1,4 @@
 import { Scene } from 'phaser';
-import Hero2 from '../sprites/hero';
 import { PhaserNavMeshPlugin } from 'phaser-navmesh';
 import Hero from '../sprites/hero';
 

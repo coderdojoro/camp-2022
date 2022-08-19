@@ -80,7 +80,7 @@ export default class Level1Scene extends TelportScene {
 
         // Object layers in Tiled let you embed extra info into a map - like a spawn point or custom
         // collision shapes. In the tmx file, there's an object layer with a point named "Spawn Point"
-        this.cameras.main.setZoom(4);
+        //this.cameras.main.setZoom(5);
 
         let spawnPoint: Phaser.Types.Tilemaps.TiledObject = this.map.findObject('Objects', (obj) => obj.name == 'Spawn Point');
 
