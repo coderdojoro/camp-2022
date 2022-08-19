@@ -1,10 +1,10 @@
 import { Scene } from 'phaser';
 import Hero2 from '../sprites/hero';
 import { PhaserNavMeshPlugin } from 'phaser-navmesh';
-import Hero1 from '../sprites/hero1';
+import Hero from '../sprites/hero';
 
 export default class TelportScene extends Scene {
-    hero: Hero1 ;
+    hero: Hero;
     teleportAreas: Array<Phaser.Types.Tilemaps.TiledObject>;
     map: Phaser.Tilemaps.Tilemap;
     worldLayer: Phaser.Tilemaps.TilemapLayer;

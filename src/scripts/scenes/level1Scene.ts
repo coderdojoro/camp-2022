@@ -1,7 +1,7 @@
 import 'phaser';
 import { AreaCollider } from '../../areaCollider';
 import Grizzly from '../sprites/grizzly';
-import Hero1 from '../sprites/hero1';
+import Hero from '../sprites/hero';
 import TelportScene from './telportScene';
 
 export default class Level1Scene extends TelportScene {
@@ -84,7 +84,7 @@ export default class Level1Scene extends TelportScene {
 
         let spawnPoint: Phaser.Types.Tilemaps.TiledObject = this.map.findObject('Objects', (obj) => obj.name == 'Spawn Point');
 
-        this.hero = new Hero1(this, spawnPoint.x, spawnPoint.y);
+        this.hero = new Hero(this, spawnPoint.x, spawnPoint.y);
         this.hero.setDepth(100);
         this.hero.setScale(0.8);
 

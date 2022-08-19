@@ -1,6 +1,4 @@
 import 'phaser';
-import Hero1 from './hero1';
-import Hero2 from './hero';
 import TelportScene from '../scenes/telportScene';
 import { PhaserNavMesh } from 'phaser-navmesh';
 
