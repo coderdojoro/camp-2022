@@ -1,7 +1,7 @@
 import 'phaser';
 import { AreaCollider } from '../../areaCollider';
 import Grizzly from '../sprites/grizzly';
-import Hero from '../sprites/hero';
+import Hero from '../sprites/hero2';
 import TelportScene from './telportScene';
 
 export default class Level1Scene extends TelportScene {
@@ -17,19 +17,12 @@ export default class Level1Scene extends TelportScene {
         this.load.image('image-background', 'assets/menu/background lvl1.jng');
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/town.json');
 
-        this.load.spritesheet('hero-idle-e-spritesheet', 'assets/hero/idle_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-walk-e-spritesheet', 'assets/hero/walk_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-walk-s-spritesheet', 'assets/hero/walk_aggro_S.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-idle-s-spritesheet', 'assets/hero/idle_aggro_S.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-idle-n-spritesheet', 'assets/hero/idle_aggro_N.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-walk-n-spritesheet', 'assets/hero/walk_aggro_N.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('kuala-idle-e-spritesheet', 'assets/kuala/idle-east.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('kuala-run-e-spritesheet', 'assets/kuala/run-east.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('kuala-run-dust-spritesheet', 'assets/kuala/run-dust.png', { frameWidth: 128, frameHeight: 128 });
 
-        this.load.spritesheet('hero-atk-e-spritesheet', 'assets/hero/atk_heavy_E.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-atk-n-spritesheet', 'assets/hero/atk_heavy_N.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-atk-s-spritesheet', 'assets/hero/atk_heavy_S.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-hitdead-e-spritesheet', 'assets/hero/hitdead_E.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-hitdead-n-spritesheet', 'assets/hero/hitdead_N.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-hitdead-s-spritesheet', 'assets/hero/hitdead_S.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('kuala-atk-e-spritesheet', 'assets/kuala/attack-east.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('kuala-death-e-spritesheet', 'assets/kuala/death_east.png', { frameWidth: 128, frameHeight: 128 });
 
         this.load.spritesheet('grizzly-idle-spritesheet', 'assets/enemies/grizzly-idle.png', { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('grizzly-walk-n-spritesheet', 'assets/enemies/grizzly-north.png', { frameWidth: 32, frameHeight: 32 });
@@ -80,7 +73,7 @@ export default class Level1Scene extends TelportScene {
 
         // Object layers in Tiled let you embed extra info into a map - like a spawn point or custom
         // collision shapes. In the tmx file, there's an object layer with a point named "Spawn Point"
-        //this.cameras.main.setZoom(5);
+        this.cameras.main.setZoom(4);
 
         let spawnPoint: Phaser.Types.Tilemaps.TiledObject = this.map.findObject('Objects', (obj) => obj.name == 'Spawn Point');
 

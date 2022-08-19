@@ -1,5 +1,5 @@
 import { Scene } from 'phaser';
-import Hero from '../sprites/hero';
+import Hero from '../sprites/hero2';
 import { PhaserNavMeshPlugin } from 'phaser-navmesh';
 
 export default class TelportScene extends Scene {
