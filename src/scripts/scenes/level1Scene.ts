@@ -86,7 +86,7 @@ export default class Level1Scene extends TelportScene {
 
         this.hero = new Hero(this, spawnPoint.x, spawnPoint.y);
         this.hero.setDepth(100);
-        this.hero.setScale(0.96);
+        this.hero.setScale(0.4);
 
         this.teleportAreas = this.map.filterObjects('Objects', (obj) => obj.type === 'TELEPORT_AREA');
 
