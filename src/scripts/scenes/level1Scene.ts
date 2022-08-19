@@ -86,7 +86,7 @@ export default class Level1Scene extends TelportScene {
 
         this.hero = new Hero(this, spawnPoint.x, spawnPoint.y);
         this.hero.setDepth(100);
-        this.hero.setScale(0.4);
+        this.hero.setScale(0.8);
 
         this.teleportAreas = this.map.filterObjects('Objects', (obj) => obj.type === 'TELEPORT_AREA');
 
@@ -103,7 +103,7 @@ export default class Level1Scene extends TelportScene {
         let camera = this.cameras.main;
         camera.startFollow(this.hero);
         camera.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-
+        camera.setZoom(1.32);
         this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     }
 

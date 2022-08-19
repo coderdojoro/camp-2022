@@ -95,7 +95,9 @@ export default class Grizzly extends Phaser.GameObjects.Sprite {
 
         if (this.enemyState == State.FOLLOW && this.target) {
             this.computeNextTarget();
-            this.scene.physics.moveTo(this, this.target!.x, this.target!.y, 100);
+            if (this.target) {
+                this.scene.physics.moveTo(this, this.target!.x, this.target!.y, 100);
+            }
             this.setWalkAnimation();
         }
 
