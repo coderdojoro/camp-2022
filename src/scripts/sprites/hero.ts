@@ -33,83 +33,38 @@ export default class Hero extends Phaser.GameObjects.Sprite {
         // this.scene.add.rectangle(x, y, 5, 5, 0xff0000);
 
         this.anims.create({
-            key: 'hero-idle-e-anim',
-            frames: this.anims.generateFrameNumbers('hero-idle-e-spritesheet', {}),
+            key: 'pink-idle-east-anim',
+            frames: this.anims.generateFrameNumbers('pink-idle-east-spritesheet', {}),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
-            key: 'hero-walk-e-anim',
-            frames: this.anims.generateFrameNumbers('hero-walk-e-spritesheet', {}),
+            key: 'pink-run-east-anim',
+            frames: this.anims.generateFrameNumbers('pink-run-east-spritesheet', {}),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
-            key: 'hero-walk-s-anim',
-            frames: this.anims.generateFrameNumbers('hero-walk-s-spritesheet', {}),
-            frameRate: 10,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'hero-idle-s-anim',
-            frames: this.anims.generateFrameNumbers('hero-idle-s-spritesheet', {}),
-            frameRate: 10,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'hero-idle-n-anim',
-            frames: this.anims.generateFrameNumbers('hero-idle-n-spritesheet', {}),
-            frameRate: 10,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'hero-walk-n-anim',
-            frames: this.anims.generateFrameNumbers('hero-walk-n-spritesheet', {}),
+            key: 'pink-run-dust-anim',
+            frames: this.anims.generateFrameNumbers('pink-run-dust-spritesheet', {}),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
-            key: 'hero-atk-e-anim',
-            frames: this.anims.generateFrameNumbers('hero-atk-e-spritesheet', {}),
+            key: 'pink-attack-east-anim',
+            frames: this.anims.generateFrameNumbers('pink-attack-east-spritesheet', {}),
             frameRate: 10,
             repeat: 0
         });
 
         this.anims.create({
-            key: 'hero-atk-n-anim',
-            frames: this.anims.generateFrameNumbers('hero-atk-n-spritesheet', {}),
-            frameRate: 10,
-            repeat: 0
-        });
-
-        this.anims.create({
-            key: 'hero-atk-s-anim',
-            frames: this.anims.generateFrameNumbers('hero-atk-s-spritesheet', {}),
-            frameRate: 10,
-            repeat: 0
-        });
-
-        this.anims.create({
-            key: 'hero-hitdead-e-anim',
-            frames: this.anims.generateFrameNumbers('hero-hitdead-e-spritesheet', {}),
+            key: 'pink-death-east-anim',
+            frames: this.anims.generateFrameNumbers('pink-death-east-spritesheet', {}),
             frameRate: 5,
             repeat: 0
         });
 
-        this.anims.create({
-            key: 'hero-hitdead-n-anim',
-            frames: this.anims.generateFrameNumbers('hero-hitdead-n-spritesheet', {}),
-            frameRate: 5,
-            repeat: 0
-        });
-
-        this.anims.create({
-            key: 'hero-hitdead-s-anim',
-            frames: this.anims.generateFrameNumbers('hero-hitdead-s-spritesheet', {}),
-            frameRate: 5,
-            repeat: 0
-        });
 
         this.keyLeft = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyRight = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
