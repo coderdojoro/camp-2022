@@ -5,6 +5,7 @@
         }
     ],
     "settings": {
+        "editor.emptySelectionClipboard": false,
         "workbench.localHistory.enabled": true,
         "workbench.localHistory.maxFileEntries": 10000,
         "workbench.localHistory.maxFileSize": 15000,
