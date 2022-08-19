@@ -11,8 +11,9 @@ export default class Level1Scene extends TelportScene {
 
     preload() {
         this.load.image('ground-tiles', 'assets/tilesets/ground-tileset.png');
-        this.load.image('maze-tiles', 'assets/tilesets/maze-tileset.png');
-        this.load.image('things-tiles', 'assets/tilesets/things-tileset.png');
+        this.load.image('maze-tiles', 'assets/tilesets/maze-tileset1.png');
+        this.load.image('things1-tiles', 'assets/tilesets/things-tileset1.png');
+        this.load.image('things2-tiles', 'assets/tilesets/things-tileset2.png');
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/town.json');
 
         this.load.spritesheet('hero-idle-e-spritesheet', 'assets/hero/idle_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
@@ -46,17 +47,19 @@ export default class Level1Scene extends TelportScene {
         // Phaser's cache (i.e. the name you used in preload)
         let tileset = this.map.addTilesetImage('ground', 'ground-tiles', 32, 32, 1, 2);
         let tileset2 = this.map.addTilesetImage('maze', 'maze-tiles', 32, 32, 1, 2);
-        let tileset3 = this.map.addTilesetImage('things', 'things-tiles', 32, 32, 1, 2);
+        let tileset3 = this.map.addTilesetImage('things1', 'things1-tiles', 32, 32, 0, 0);
+        let tileset4 = this.map.addTilesetImage('things2', 'things2-tiles', 32, 32, 1, 2);
 
         // Parameters: layer name (or index) from Tiled, tileset, x, y
-        let belowLayer = this.map.createLayer('Below hero', [tileset, tileset2, tileset3], 0, 0);
-        let objectsBelowLayer = this.map.createLayer('Objects below hero', [tileset, tileset2, tileset3], 0, 0);
-        this.worldLayer = this.map.createLayer('World', [tileset, tileset2, tileset3], 0, 0);
-        let aboveLayer = this.map.createLayer('Above hero', [tileset, tileset2, tileset3], 0, 0);
+        let belowLayer = this.map.createLayer('Below hero', [tileset, tileset2, tileset3, tileset4], 0, 0);
+        let objectsBelowLayer = this.map.createLayer('Objects below hero', [tileset, tileset2, tileset3, tileset4], 0, 0);
+        this.worldLayer = this.map.createLayer('World', [tileset, tileset2, tileset3, tileset4], 0, 0);
+        let aboveLayer = this.map.createLayer('Above hero', [tileset, tileset2, tileset3, tileset4], 0, 0);
 
         this.worldLayer.setCollisionBetween(tileset.firstgid, tileset.firstgid + tileset.total, true);
         this.worldLayer.setCollisionBetween(tileset2.firstgid, tileset2.firstgid + tileset2.total, true);
         this.worldLayer.setCollisionBetween(tileset3.firstgid, tileset3.firstgid + tileset3.total, true);
+        this.worldLayer.setCollisionBetween(tileset4.firstgid, tileset4.firstgid + tileset4.total, true);
 
         // By default, everything gets depth sorted on the screen in the order we created things. Here, we
         // want the "Above this.hero" layer to sit on top of the this.hero, so we explicitly give it a depth.
@@ -79,6 +82,7 @@ export default class Level1Scene extends TelportScene {
 
         this.hero = new Hero(this, spawnPoint.x, spawnPoint.y);
         this.hero.setDepth(100);
+        this.hero.setScale(0.96);
 
         this.teleportAreas = this.map.filterObjects('Objects', (obj) => obj.type === 'TELEPORT_AREA');
 
