@@ -15,19 +15,12 @@ export default class Level2Scene extends TelportScene {
         this.load.image('castle 2-tiles', 'assets/tilesets/itemsspritesheet.png');
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/maze.json');
 
-        this.load.spritesheet('hero-idle-e-spritesheet', 'assets/hero/idle_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-walk-e-spritesheet', 'assets/hero/walk_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-walk-s-spritesheet', 'assets/hero/walk_aggro_S.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-idle-s-spritesheet', 'assets/hero/idle_aggro_S.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-idle-n-spritesheet', 'assets/hero/idle_aggro_N.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-walk-n-spritesheet', 'assets/hero/walk_aggro_N.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('pink-idle-e-spritesheet', 'assets/pink/idle-east.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('pink-run-e-spritesheet', 'assets/pink/run-east.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('pink-run-dust-spritesheet', 'assets/pink/run-dust-east.png', { frameWidth: 128, frameHeight: 128 });
 
-        this.load.spritesheet('hero-atk-e-spritesheet', 'assets/hero/atk_heavy_E.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-atk-n-spritesheet', 'assets/hero/atk_heavy_N.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-atk-s-spritesheet', 'assets/hero/atk_heavy_S.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-hitdead-e-spritesheet', 'assets/hero/hitdead_E.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-hitdead-n-spritesheet', 'assets/hero/hitdead_N.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('hero-hitdead-s-spritesheet', 'assets/hero/hitdead_S.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('pink-atk-e-spritesheet', 'assets/pink/attack-east.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('pink-death-e-spritesheet', 'assets/pink/death-east.png', { frameWidth: 128, frameHeight: 128 });
 
         this.load.spritesheet('grizzly-idle-spritesheet', 'assets/enemies/grizzly-idle.png', { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('grizzly-walk-n-spritesheet', 'assets/enemies/grizzly-north.png', { frameWidth: 32, frameHeight: 32 });
