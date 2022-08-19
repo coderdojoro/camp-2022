@@ -1,6 +1,6 @@
 import 'phaser';
 import { AreaCollider } from '../../areaCollider';
-import Hero from '../sprites/hero2';
+import Hero from '../sprites/hero';
 import TelportScene from './telportScene';
 
 export default class StoreScene extends TelportScene {

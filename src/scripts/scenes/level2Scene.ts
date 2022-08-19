@@ -1,7 +1,7 @@
 import 'phaser';
 import { AreaCollider } from '../../areaCollider';
 import Grizzly from '../sprites/grizzly';
-import Hero from '../sprites/hero2';
+import Hero from '../sprites/hero';
 import TelportScene from './telportScene';
 
 export default class Level2Scene extends TelportScene {

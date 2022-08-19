@@ -1,7 +1,7 @@
 import 'phaser';
 import { AreaCollider } from '../../areaCollider';
 import TeleportScene from './telportScene';
-import Hero from '../sprites/hero2';
+import Hero from '../sprites/hero';
 
 export default class House1FirstFloorScene extends TeleportScene {
     constructor() {

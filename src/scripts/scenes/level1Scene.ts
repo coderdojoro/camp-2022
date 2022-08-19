@@ -1,7 +1,7 @@
 import 'phaser';
 import { AreaCollider } from '../../areaCollider';
 import Grizzly from '../sprites/grizzly';
-import Hero from '../sprites/hero2';
+import Hero1 from '../sprites/hero1';
 import TelportScene from './telportScene';
 
 export default class Level1Scene extends TelportScene {
@@ -14,15 +14,14 @@ export default class Level1Scene extends TelportScene {
         this.load.image('maze-tiles', 'assets/tilesets/maze-tileset1.png');
         this.load.image('things1-tiles', 'assets/tilesets/things-tileset1.png');
         this.load.image('things2-tiles', 'assets/tilesets/things-tileset2.png');
-        this.load.image('image-background', 'assets/menu/background lvl1.jng');
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/town.json');
 
-        this.load.spritesheet('kuala-idle-e-spritesheet', 'assets/kuala/idle-east.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('kuala-run-e-spritesheet', 'assets/kuala/run-east.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('kuala-run-dust-spritesheet', 'assets/kuala/run-dust.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('kuala-idle-e-spritesheet', 'assets/hero/kuala/kuala-idle-east.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('kuala-run-e-spritesheet', 'assets/hero/kuala/kuala-run-east.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('kuala-run-dust-spritesheet', 'assets/hero/kuala/kuala-run-dust-east.png', { frameWidth: 32, frameHeight: 32 });
 
-        this.load.spritesheet('kuala-atk-e-spritesheet', 'assets/kuala/attack-east.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('kuala-death-e-spritesheet', 'assets/kuala/death_east.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('kuala-atk-e-spritesheet', 'assets/hero/kuala/kuala-attack-east.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('kuala-death-e-spritesheet', 'assets/hero/kuala/kuala-death-east.png', { frameWidth: 32, frameHeight: 32 });
 
         this.load.spritesheet('grizzly-idle-spritesheet', 'assets/enemies/grizzly-idle.png', { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('grizzly-walk-n-spritesheet', 'assets/enemies/grizzly-north.png', { frameWidth: 32, frameHeight: 32 });
@@ -77,9 +76,9 @@ export default class Level1Scene extends TelportScene {
 
         let spawnPoint: Phaser.Types.Tilemaps.TiledObject = this.map.findObject('Objects', (obj) => obj.name == 'Spawn Point');
 
-        this.hero = new Hero(this, spawnPoint.x, spawnPoint.y);
+        this.hero = new Hero1(this, spawnPoint.x, spawnPoint.y);
         this.hero.setDepth(100);
-        this.hero.setScale(0.4);
+        this.hero.setScale(0.9);
 
         this.teleportAreas = this.map.filterObjects('Objects', (obj) => obj.type === 'TELEPORT_AREA');
 
