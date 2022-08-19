@@ -43,9 +43,9 @@ export default class MenuScene extends Phaser.Scene {
         let scale = Math.max(scaleX, scaleY);
         title.setScale(scale);
 
-        let playLvl1 = this.add.sprite(screenCenterX, 700, 'level1').setInteractive();
+        let playLvl1 = this.add.sprite(screenCenterX, 800, 'level1').setInteractive();
         playLvl1.setOrigin(0.5, 0);
-        let playLvl2 = this.add.sprite(screenCenterX, 810, 'level2').setInteractive();
+        let playLvl2 = this.add.sprite(screenCenterX, 900, 'level2').setInteractive();
         playLvl2.setOrigin(0.5, 0);
 
         playLvl1.on(Phaser.Input.Events.POINTER_OVER, () => {

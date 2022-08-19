@@ -14,6 +14,7 @@ export default class Level1Scene extends TelportScene {
         this.load.image('maze-tiles', 'assets/tilesets/maze-tileset1.png');
         this.load.image('things1-tiles', 'assets/tilesets/things-tileset1.png');
         this.load.image('things2-tiles', 'assets/tilesets/things-tileset2.png');
+        this.load.image('image-background', 'assets/menu/background lvl1.jng');
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/town.json');
 
         this.load.spritesheet('hero-idle-e-spritesheet', 'assets/hero/idle_aggro_E.png', { frameWidth: 128, frameHeight: 128 });
@@ -42,6 +43,7 @@ export default class Level1Scene extends TelportScene {
         this.cameras.main.setBackgroundColor('#008080');
 
         this.map = this.make.tilemap({ key: 'map' });
+        this.add.image(4000, 3000, 'image-background');
 
         // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
         // Phaser's cache (i.e. the name you used in preload)
@@ -78,6 +80,8 @@ export default class Level1Scene extends TelportScene {
 
         // Object layers in Tiled let you embed extra info into a map - like a spawn point or custom
         // collision shapes. In the tmx file, there's an object layer with a point named "Spawn Point"
+        //this.cameras.main.setZoom(5);
+
         let spawnPoint: Phaser.Types.Tilemaps.TiledObject = this.map.findObject('Objects', (obj) => obj.name == 'Spawn Point');
 
         this.hero = new Hero(this, spawnPoint.x, spawnPoint.y);
@@ -99,7 +103,7 @@ export default class Level1Scene extends TelportScene {
         let camera = this.cameras.main;
         camera.startFollow(this.hero);
         camera.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-        // camera.setZoom(0.5);
+
         this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     }
 
