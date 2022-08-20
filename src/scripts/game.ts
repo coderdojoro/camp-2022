@@ -8,20 +8,18 @@ import MenuScene from './scenes/menuScene';
 import StoreScene from './scenes/storeScene';
 import { PhaserNavMeshPlugin } from 'phaser-navmesh';
 
-
-
 export const phaserConfiguration = {
     type: Phaser.AUTO,
     backgroundColor: '#008080',
     plugins: {
-        scene:[
+        scene: [
             {
                 key: 'PhaserNavMeshPlugin', // Key to store the plugin class under in cache
                 plugin: PhaserNavMeshPlugin, // Class that constructs plugins
                 mapping: 'navMeshPlugin', // Property mapping to use for the scene, e.g. this.navMeshPlugin
                 start: true
             }
-    ]
+        ]
     },
     scale: {
         parent: 'phaser-game',

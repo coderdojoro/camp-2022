@@ -1,5 +1,8 @@
 import 'phaser';
+<<<<<<< HEAD
 import Hero from './hero';
+=======
+>>>>>>> f77307134e20cf453bd5c24588b211530f4cd074
 import TelportScene from '../scenes/telportScene';
 import { PhaserNavMesh } from 'phaser-navmesh';
 
@@ -95,7 +98,9 @@ export default class Grizzly extends Phaser.GameObjects.Sprite {
 
         if (this.enemyState == State.FOLLOW && this.target) {
             this.computeNextTarget();
-            this.scene.physics.moveTo(this, this.target!.x, this.target!.y, 100);
+            if (this.target) {
+                this.scene.physics.moveTo(this, this.target!.x, this.target!.y, 100);
+            }
             this.setWalkAnimation();
         }
 
